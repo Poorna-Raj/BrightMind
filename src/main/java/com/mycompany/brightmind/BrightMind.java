@@ -11,6 +11,6 @@ package com.mycompany.brightmind;
 public class BrightMind {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Hi Mom");
     }
 }
