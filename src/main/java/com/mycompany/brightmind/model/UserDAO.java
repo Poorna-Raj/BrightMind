@@ -25,7 +25,12 @@ public class UserDAO {
             stmt.setString(2,user.getPassword());
             
             ResultSet rs = stmt.executeQuery();
-            return rs.next();
+            if(rs.next()){
+                return true;
+            }
+            else{
+                return false;
+            }
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
