@@ -4,6 +4,10 @@
 
 package com.mycompany.brightmind;
 
+import com.mycompany.brightmind.controller.LoginController;
+import com.mycompany.brightmind.model.UserDAO;
+import com.mycompany.brightmind.view.LoginView;
+
 /**
  *
  * @author Poorna
@@ -11,6 +15,9 @@ package com.mycompany.brightmind;
 public class BrightMind {
 
     public static void main(String[] args) {
-        System.out.println("Hi Mom");
+        LoginView view = new LoginView();
+        view.setVisible(true);
+        UserDAO userDAO = new UserDAO();
+        LoginController controller = new LoginController(view,userDAO);
     }
 }
