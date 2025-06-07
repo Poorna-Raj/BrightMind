@@ -123,25 +123,28 @@ public class StudentPanel extends javax.swing.JPanel {
         txtDob.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("y-M-d"))));
         txtDob.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        btnCreate.setBackground(new java.awt.Color(102, 255, 102));
+        btnCreate.setBackground(new java.awt.Color(34, 197, 94));
         btnCreate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCreate.setForeground(new java.awt.Color(0, 0, 0));
-        btnCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-create-24.png"))); // NOI18N
+        btnCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/create.png"))); // NOI18N
         btnCreate.setText("Create");
 
-        btnUpdate.setBackground(new java.awt.Color(102, 255, 102));
+        btnUpdate.setBackground(new java.awt.Color(34, 197, 94));
         btnUpdate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(0, 0, 0));
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
         btnUpdate.setText("Update");
 
-        btnSearch.setBackground(new java.awt.Color(102, 255, 102));
+        btnSearch.setBackground(new java.awt.Color(34, 197, 94));
         btnSearch.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(0, 0, 0));
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
         btnSearch.setText("Search");
 
-        btnDelete.setBackground(new java.awt.Color(102, 255, 102));
+        btnDelete.setBackground(new java.awt.Color(34, 197, 94));
         btnDelete.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(0, 0, 0));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/delete.png"))); // NOI18N
         btnDelete.setText("Delete");
 
         lbError.setBackground(new java.awt.Color(255, 255, 255));
@@ -212,7 +215,7 @@ public class StudentPanel extends javax.swing.JPanel {
                     .addComponent(btnDelete)
                     .addComponent(btnSearch)
                     .addComponent(lbError))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setLayer(createPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
