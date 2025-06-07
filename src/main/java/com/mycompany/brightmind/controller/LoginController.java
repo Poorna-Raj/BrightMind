@@ -5,11 +5,13 @@
 package com.mycompany.brightmind.controller;
 
 import com.mycompany.brightmind.model.StudentDAO;
+import com.mycompany.brightmind.model.SubjectDAO;
 import com.mycompany.brightmind.model.User;
 import com.mycompany.brightmind.model.UserDAO;
 import com.mycompany.brightmind.view.Dashboard;
 import com.mycompany.brightmind.view.LoginView;
 import com.mycompany.brightmind.view.StudentPanel;
+import com.mycompany.brightmind.view.SubjectPanel;
 
 /**
  *
@@ -37,10 +39,14 @@ public class LoginController {
             java.awt.EventQueue.invokeLater(() -> {
             StudentPanel studentPanel = new StudentPanel();
             StudentDAO studentDAO = new StudentDAO();
-
             StudentController studentController = new StudentController(studentPanel, studentDAO);
-            Dashboard dashboard = new Dashboard(studentPanel);
-            DashboardController dashboardController = new DashboardController(dashboard, studentController);
+            
+            SubjectPanel subjectPanel = new SubjectPanel();
+            SubjectDAO subjectDAO = new SubjectDAO();
+            SubjectController subjectController = new SubjectController(subjectPanel, subjectDAO);
+            
+            Dashboard dashboard = new Dashboard(studentPanel,subjectPanel);
+            DashboardController dashboardController = new DashboardController(dashboard, studentController,subjectController);
 
             dashboard.setVisible(true);
             view.hide();

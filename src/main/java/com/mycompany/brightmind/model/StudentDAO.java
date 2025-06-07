@@ -86,26 +86,26 @@ public class StudentDAO {
      * @return Student object which holds data of the student
      */
     public Student viewStudentByEmail(String email) {
-    String sql = "SELECT * FROM students WHERE email LIKE ?";
-    try (Connection conn = DBUtil.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        String sql = "SELECT * FROM students WHERE email LIKE ?";
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-        stmt.setString(1, email);
-        try (ResultSet rs = stmt.executeQuery()) {
-            if (rs.next()) {
-                Student student = new Student();
-                student.setStudentId(rs.getInt("student_id"));
-                student.setFirstName(rs.getString("first_name"));
-                student.setLastName(rs.getString("last_name"));
-                student.setEmail(rs.getString("email"));
-                student.setDateOfBirth(rs.getDate("date_of_birth"));
-                return student;
+            stmt.setString(1, email);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    Student student = new Student();
+                    student.setStudentId(rs.getInt("student_id"));
+                    student.setFirstName(rs.getString("first_name"));
+                    student.setLastName(rs.getString("last_name"));
+                    student.setEmail(rs.getString("email"));
+                    student.setDateOfBirth(rs.getDate("date_of_birth"));
+                    return student;
+                }
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } catch (SQLException ex) {
-        Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    return null;
+        return null;
 }
 
     /**

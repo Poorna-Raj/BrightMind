@@ -15,17 +15,25 @@ import java.awt.CardLayout;
 public class DashboardController {
     private Dashboard dashboard;
     private StudentController studentController;
+    private SubjectController subjectController;
 
-    public DashboardController(Dashboard dashboard, StudentController studentController) {
+    public DashboardController(Dashboard dashboard, StudentController studentController, SubjectController subjectController) {
         this.dashboard = dashboard;
         this.studentController = studentController;
+        this.subjectController = subjectController;
         
         this.dashboard.getBtnStudentMng().addActionListener(e-> loadStudentMng());
+        this.dashboard.getBtnSubjectMng().addActionListener(e ->loadSubjectMng());
+        
     }
     
     public void loadStudentMng(){
         dashboard.switchView("studentPanel");
         System.out.println("Switched to Student Panel");
         studentController.loadStudents();
+    }
+    public void loadSubjectMng(){
+        dashboard.switchView("subjectPanel");
+        System.out.println("Switched to Subject Panel");
     }
 }
