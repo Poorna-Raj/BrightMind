@@ -20,14 +20,17 @@ public class Dashboard extends javax.swing.JFrame {
     
     private StudentPanel studentPanel;
     private SubjectPanel subjectPanel;
+    private MarksPanel marksPanel;
 
-    public Dashboard(StudentPanel studentPanel,SubjectPanel subjectPanel) {
+    public Dashboard(StudentPanel studentPanel,SubjectPanel subjectPanel, MarksPanel marksPanel) {
         this.studentPanel = studentPanel;
         this.subjectPanel = subjectPanel;
+        this.marksPanel = marksPanel;
         initComponents();
         
         viewPanel.add(studentPanel, "studentPanel");
         viewPanel.add(subjectPanel, "subjectPanel");
+        viewPanel.add(marksPanel, "marksPanel");
     }
 
     /**
@@ -45,7 +48,7 @@ public class Dashboard extends javax.swing.JFrame {
         btnDashboard = new javax.swing.JButton();
         btnStudentMng = new javax.swing.JButton();
         btnSubjectMng = new javax.swing.JButton();
-        btnAttendenceMng = new javax.swing.JButton();
+        btnMarksMng = new javax.swing.JButton();
         btnUserMng = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         viewPanel = new javax.swing.JPanel();
@@ -100,16 +103,16 @@ public class Dashboard extends javax.swing.JFrame {
         btnSubjectMng.setFocusPainted(false);
         btnSubjectMng.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
-        btnAttendenceMng.setBackground(new java.awt.Color(255, 255, 255));
-        btnAttendenceMng.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnAttendenceMng.setForeground(new java.awt.Color(0, 0, 0));
-        btnAttendenceMng.setText("Attendence Management");
-        btnAttendenceMng.setBorder(null);
-        btnAttendenceMng.setBorderPainted(false);
-        btnAttendenceMng.setContentAreaFilled(false);
-        btnAttendenceMng.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAttendenceMng.setFocusPainted(false);
-        btnAttendenceMng.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMarksMng.setBackground(new java.awt.Color(255, 255, 255));
+        btnMarksMng.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnMarksMng.setForeground(new java.awt.Color(0, 0, 0));
+        btnMarksMng.setText("Marks Management");
+        btnMarksMng.setBorder(null);
+        btnMarksMng.setBorderPainted(false);
+        btnMarksMng.setContentAreaFilled(false);
+        btnMarksMng.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMarksMng.setFocusPainted(false);
+        btnMarksMng.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         btnUserMng.setBackground(new java.awt.Color(255, 255, 255));
         btnUserMng.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -146,7 +149,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnLogout)
                     .addComponent(btnUserMng)
-                    .addComponent(btnAttendenceMng)
+                    .addComponent(btnMarksMng)
                     .addComponent(btnSubjectMng)
                     .addComponent(btnStudentMng)
                     .addComponent(btnDashboard))
@@ -164,7 +167,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(btnSubjectMng)
                 .addGap(32, 32, 32)
-                .addComponent(btnAttendenceMng)
+                .addComponent(btnMarksMng)
                 .addGap(33, 33, 33)
                 .addComponent(btnUserMng)
                 .addGap(27, 27, 27)
@@ -222,8 +225,8 @@ public class Dashboard extends javax.swing.JFrame {
 //        /* Create and display the form */
 //    }
 
-    public JButton getBtnAttendenceMng() {
-        return btnAttendenceMng;
+    public JButton getBtnMarksMng() {
+        return btnMarksMng;
     }
 
     public JButton getBtnDashboard() {
@@ -252,9 +255,9 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAttendenceMng;
     private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnMarksMng;
     private javax.swing.JButton btnStudentMng;
     private javax.swing.JButton btnSubjectMng;
     private javax.swing.JButton btnUserMng;

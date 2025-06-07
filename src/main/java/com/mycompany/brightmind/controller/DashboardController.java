@@ -16,14 +16,17 @@ public class DashboardController {
     private Dashboard dashboard;
     private StudentController studentController;
     private SubjectController subjectController;
+    private MarksController marksController;
 
-    public DashboardController(Dashboard dashboard, StudentController studentController, SubjectController subjectController) {
+    public DashboardController(Dashboard dashboard, StudentController studentController, SubjectController subjectController, MarksController marksController) {
         this.dashboard = dashboard;
         this.studentController = studentController;
         this.subjectController = subjectController;
+        this.marksController = marksController;
         
         this.dashboard.getBtnStudentMng().addActionListener(e-> loadStudentMng());
         this.dashboard.getBtnSubjectMng().addActionListener(e ->loadSubjectMng());
+        this.dashboard.getBtnMarksMng().addActionListener(e -> loadMarksMng());
         
     }
     
@@ -36,5 +39,10 @@ public class DashboardController {
         dashboard.switchView("subjectPanel");
         System.out.println("Switched to Subject Panel");
         subjectController.loadSubjects();
+    }
+    public void loadMarksMng(){
+        dashboard.switchView("marksPanel");
+        System.out.println("Switched to Marks Panel");
+        marksController.loadMarks();
     }
 }

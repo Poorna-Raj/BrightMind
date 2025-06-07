@@ -86,7 +86,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
                           <Component id="btnUserMng" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAttendenceMng" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnMarksMng" min="-2" max="-2" attributes="0"/>
                           <Component id="btnSubjectMng" min="-2" max="-2" attributes="0"/>
                           <Component id="btnStudentMng" min="-2" max="-2" attributes="0"/>
                           <Component id="btnDashboard" min="-2" max="-2" attributes="0"/>
@@ -107,7 +107,7 @@
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="btnSubjectMng" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="btnAttendenceMng" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnMarksMng" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="btnUserMng" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -197,7 +197,7 @@
                 <Property name="horizontalAlignment" type="int" value="2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnAttendenceMng">
+            <Component class="javax.swing.JButton" name="btnMarksMng">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -208,7 +208,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Attendence Management"/>
+                <Property name="text" type="java.lang.String" value="Marks Management"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
