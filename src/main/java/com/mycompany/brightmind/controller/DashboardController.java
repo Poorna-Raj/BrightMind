@@ -35,5 +35,6 @@ public class DashboardController {
     public void loadSubjectMng(){
         dashboard.switchView("subjectPanel");
         System.out.println("Switched to Subject Panel");
+        subjectController.loadSubjects();
     }
 }

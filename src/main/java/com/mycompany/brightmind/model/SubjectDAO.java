@@ -114,7 +114,7 @@ public class SubjectDAO {
      * @return return the subject of related subject code
      */
     public Subject viewSubjectByCode(String code){
-        String sql = "SELECT * FROM students WHERE subject_code LIKE ?";
+        String sql = "SELECT * FROM subjects WHERE subject_code LIKE ?;";
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
