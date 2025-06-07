@@ -25,7 +25,7 @@ public class StudentDAO {
      */
     public boolean createStudent(Student student){
         String sql = "INSERT INTO students (first_name,last_name,email,date_of_birth) VALUES (?,?,?,?);";
-        try(Connection conn = DBUtil.getInstance();
+        try(Connection conn = DBUtil.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)){
             stmt.setString(1, student.getFirstName());
             stmt.setString(2,student.getLastName());
@@ -47,7 +47,7 @@ public class StudentDAO {
      */
     public boolean updateStudent(Student student){
         String sql = "UPDATE students SET first_name=?,last_name=?,email=?,date_of_birth=? WHERE student_id=?;";
-        try(Connection conn = DBUtil.getInstance();
+        try(Connection conn = DBUtil.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)){
             stmt.setString(1, student.getFirstName());
             stmt.setString(2, student.getLastName());
@@ -69,7 +69,7 @@ public class StudentDAO {
      */
     public boolean deleteStudent(int studentId){
         String sql = "DELETE FROM students WHERE student_id=?;";
-        try(Connection conn = DBUtil.getInstance();
+        try(Connection conn = DBUtil.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)){
             stmt.setInt(1, studentId);
             int rowA = stmt.executeUpdate();
@@ -87,7 +87,7 @@ public class StudentDAO {
      */
     public Student viewStudentById(int studentId){
         String sql = "SELECT * FROM students WHERE student_id = ?;";
-        try(Connection conn = DBUtil.getInstance();
+        try(Connection conn = DBUtil.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql);
                 ResultSet rs = stmt.executeQuery()){
             
@@ -113,7 +113,7 @@ public class StudentDAO {
     public List<Student> getAllStudent(){
         String sql = "SELECT * FROM students;";
         List<Student> studentList = new ArrayList<>();
-        try(Connection conn = DBUtil.getInstance();
+        try(Connection conn = DBUtil.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql);
                 ResultSet rs = stmt.executeQuery()){
       

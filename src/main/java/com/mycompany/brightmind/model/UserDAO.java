@@ -19,7 +19,7 @@ public class UserDAO {
     
     public boolean validateUser(User user){
         String sql = "SELECT * FROM tblUser WHERE email = ? AND password = ?";
-        try(Connection conn = DBUtil.getInstance();
+        try(Connection conn = DBUtil.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)){
             stmt.setString(1,user.getEmail());
             stmt.setString(2,user.getPassword());

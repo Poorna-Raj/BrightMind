@@ -4,9 +4,12 @@
  */
 package com.mycompany.brightmind.controller;
 
+import com.mycompany.brightmind.model.StudentDAO;
 import com.mycompany.brightmind.model.User;
 import com.mycompany.brightmind.model.UserDAO;
+import com.mycompany.brightmind.view.Dashboard;
 import com.mycompany.brightmind.view.LoginView;
+import com.mycompany.brightmind.view.StudentPanel;
 
 /**
  *
@@ -31,7 +34,17 @@ public class LoginController {
         user = new User(email,password);
         
         if(userDAO.validateUser(user)){
-            view.txtMessage.setText("Login Success");
+            java.awt.EventQueue.invokeLater(() -> {
+            StudentPanel studentPanel = new StudentPanel();
+            StudentDAO studentDAO = new StudentDAO();
+
+            StudentController studentController = new StudentController(studentPanel, studentDAO);
+            Dashboard dashboard = new Dashboard(studentPanel);
+            DashboardController dashboardController = new DashboardController(dashboard, studentController);
+
+            dashboard.setVisible(true);
+            view.hide();
+        });
         }
         else{
             view.txtMessage.setText("Login Failed");
