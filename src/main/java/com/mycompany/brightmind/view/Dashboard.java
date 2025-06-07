@@ -53,6 +53,7 @@ public class Dashboard extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1080, 720));
         setName("studentFrame"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1080, 720));
+        setResizable(false);
         setSize(new java.awt.Dimension(1080, 720));
 
         jSplitPane1.setDividerLocation(300);

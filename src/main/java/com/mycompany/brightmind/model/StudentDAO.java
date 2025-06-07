@@ -85,14 +85,14 @@ public class StudentDAO {
      * @param studentId which can be used to search for specific student
      * @return Student object which holds data of the student
      */
-    public Student viewStudentById(int studentId){
-        String sql = "SELECT * FROM students WHERE student_id = ?;";
-        try(Connection conn = DBUtil.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sql);
-                ResultSet rs = stmt.executeQuery()){
-            
-            stmt.setInt(1, studentId);
-            if(rs.next()){
+    public Student viewStudentByEmail(String email) {
+    String sql = "SELECT * FROM students WHERE email LIKE ?";
+    try (Connection conn = DBUtil.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, email);
+        try (ResultSet rs = stmt.executeQuery()) {
+            if (rs.next()) {
                 Student student = new Student();
                 student.setStudentId(rs.getInt("student_id"));
                 student.setFirstName(rs.getString("first_name"));
@@ -101,11 +101,13 @@ public class StudentDAO {
                 student.setDateOfBirth(rs.getDate("date_of_birth"));
                 return student;
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+    } catch (SQLException ex) {
+        Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return null;
+}
+
     /**
      * 
      * @return all the students as list of student objects  
