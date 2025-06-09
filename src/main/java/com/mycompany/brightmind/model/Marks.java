@@ -8,9 +8,7 @@ package com.mycompany.brightmind.model;
  *
  * @author Poorna
  */
-enum ExamType{
-    Mid,Final,Quiz
-}
+
 public class Marks {
     private int markId;
     private int studentId;

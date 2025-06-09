@@ -6,6 +6,7 @@ package com.mycompany.brightmind.view;
 
 import com.mycompany.brightmind.model.Marks;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -289,48 +290,64 @@ public class MarksPanel extends javax.swing.JPanel {
         return cmbExamtype;
     }
 
-    public void setCmbExamtype(JComboBox<String> cmbExamtype) {
-        this.cmbExamtype = cmbExamtype;
+    public void setCmbExamtype(int cmbExamtype) {
+        this.cmbExamtype.setSelectedIndex(cmbExamtype);
     }
 
     public JTextField getTxtMarks() {
         return txtMarks;
     }
 
-    public void setTxtMarks(JTextField txtMarks) {
-        this.txtMarks = txtMarks;
+    public void setTxtMarks(String txtMarks) {
+        this.txtMarks.setText(txtMarks);
     }
 
     public JTextField getTxtMax() {
         return txtMax;
     }
 
-    public void setTxtMax(JTextField txtMax) {
-        this.txtMax = txtMax;
+    public void setTxtMax(String txtMax) {
+        this.txtMax.setText(txtMax);
     }
 
     public JTextField getTxtStudentId() {
         return txtStudentId;
     }
 
-    public void setTxtStudentId(JTextField txtStudentId) {
-        this.txtStudentId = txtStudentId;
+    public void setTxtStudentId(String txtStudentId) {
+        this.txtStudentId.setText(txtStudentId);
     }
 
     public JTextField getTxtSubjectId() {
         return txtSubjectId;
     }
 
-    public void setTxtSubjectId(JTextField txtSubjectId) {
-        this.txtSubjectId = txtSubjectId;
+    public void setTxtSubjectId(String txtSubjectId) {
+        this.txtSubjectId.setText(txtSubjectId);
     }
 
     public JTextField getTxtMarksId() {
         return txtMarksId;
     }
 
-    public void setTxtMarksId(JTextField txtMarksId) {
-        this.txtMarksId = txtMarksId;
+    public void setTxtMarksId(String txtMarksId) {
+        this.txtMarksId.setText(txtMarksId);
+    }
+
+    public JButton getBtnCreate() {
+        return btnCreate;
+    }
+
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    public JButton getBtnSearch() {
+        return btnSearch;
+    }
+
+    public JButton getBtnUpdate() {
+        return btnUpdate;
     }
     
     

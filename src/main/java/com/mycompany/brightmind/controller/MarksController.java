@@ -4,10 +4,14 @@
  */
 package com.mycompany.brightmind.controller;
 
+import com.mycompany.brightmind.model.ExamType;
 import com.mycompany.brightmind.model.Marks;
 import com.mycompany.brightmind.model.MarksDAO;
 import com.mycompany.brightmind.view.MarksPanel;
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
@@ -23,6 +27,11 @@ public class MarksController {
         this.marksDAO = marksDAO;
         this.marksPanel = marksPanel;
         setupRowSelectionListener();
+        
+        this.marksPanel.getBtnCreate().addActionListener(e -> createMarks());
+        this.marksPanel.getBtnUpdate().addActionListener(e -> updateMarks());
+        this.marksPanel.getBtnDelete().addActionListener(e -> deleteMarks());
+        this.marksPanel.getBtnSearch().addActionListener(e -> searchMarks());
     }
     
     void loadMarks() {
@@ -74,4 +83,114 @@ public class MarksController {
         }
     }
     
+    public void clearFields(){
+        marksPanel.setTxtMarksId("");
+        marksPanel.setTxtStudentId("");
+        marksPanel.setTxtSubjectId("");
+        marksPanel.setCmbExamtype(0);
+        marksPanel.setTxtMarks("");
+        marksPanel.setTxtMax("");
+    }
+    
+    public void createMarks(){
+        try{
+            int studentId = Integer.parseInt(marksPanel.getTxtStudentId().getText());
+            int subjectId = Integer.parseInt(marksPanel.getTxtSubjectId().getText());
+            String selectedType = (String) marksPanel.getCmbExamtype().getSelectedItem();
+            ExamType type = ExamType.valueOf(selectedType); 
+            int obtainedMarks = Integer.parseInt(marksPanel.getTxtMarks().getText());
+            int max = Integer.parseInt(marksPanel.getTxtMax().getText());
+            
+            marks = new Marks(studentId, subjectId, type, obtainedMarks, max);
+            boolean success = marksDAO.createMarks(marks);
+            if(success){
+                JOptionPane.showMessageDialog(marksPanel, "Marks Added Successfully.", "Operation Complete!", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(marksPanel, "Marks addition Failed.", "Operation Failed!", JOptionPane.ERROR_MESSAGE);
+            }
+            loadMarks();
+            clearFields();
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(marksPanel, ex.getMessage(), "Operation Failed!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void updateMarks(){
+        try{
+            int marksId = Integer.parseInt(marksPanel.getTxtMarksId().getText());
+            int studentId = Integer.parseInt(marksPanel.getTxtStudentId().getText());
+            int subjectId = Integer.parseInt(marksPanel.getTxtSubjectId().getText());
+            String selectedType = (String) marksPanel.getCmbExamtype().getSelectedItem();
+            ExamType type = ExamType.valueOf(selectedType); 
+            int obtainedMarks = Integer.parseInt(marksPanel.getTxtMarks().getText());
+            int max = Integer.parseInt(marksPanel.getTxtMax().getText());
+            
+            marks = new Marks(marksId,studentId, subjectId, type, obtainedMarks, max);
+            boolean success = marksDAO.updateMarks(marks);
+            if(success){
+                JOptionPane.showMessageDialog(marksPanel, "Marks Updated Successfully.", "Operation Complete!", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(marksPanel, "Marks Updation Failed.", "Operation Failed!", JOptionPane.ERROR_MESSAGE);
+            }
+            loadMarks();
+            clearFields();
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(marksPanel, ex.getMessage(), "Operation Failed!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void deleteMarks(){
+        try{
+            int marksId = Integer.parseInt((marksPanel.getTxtMarksId().getText()));
+            
+            boolean success = marksDAO.deleteMarks(marksId);
+            if(success){
+                JOptionPane.showMessageDialog(marksPanel, "Marks Deleted Successfully.", "Operation Complete!", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(marksPanel, "Marks Deletion Failed.", "Operation Failed!", JOptionPane.ERROR_MESSAGE);
+            }
+            loadMarks();
+            clearFields();
+        }
+        catch(NumberFormatException nex){
+            JOptionPane.showMessageDialog(marksPanel, "Please select a record.", "Operation Failed!", JOptionPane.ERROR_MESSAGE);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(marksPanel, e.getMessage(), "Operation Failed!", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    public void searchMarks(){
+        try{
+            String studentText = marksPanel.getTxtStudentId().getText().trim();
+            String subjectText = marksPanel.getTxtSubjectId().getText().trim();
+            List<Marks> filteredMarks = new ArrayList();
+        
+            if (studentText.isEmpty() || subjectText.isEmpty()) {
+                loadMarks();
+            }
+            else{
+                int studentId = Integer.parseInt(studentText);
+                int subjectId = Integer.parseInt(subjectText);
+                
+                filteredMarks = marksDAO.viewMarksBy(studentId, subjectId);
+                if(filteredMarks == null || filteredMarks.isEmpty()){
+                    JOptionPane.showMessageDialog(marksPanel, "No marks has been found","Operation Completed",JOptionPane.INFORMATION_MESSAGE);
+                    loadMarks();
+                }
+                else{
+                    marksPanel.updateTable(filteredMarks);
+                }
+            }
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(marksPanel, e.getMessage(), "Operation Failed!", JOptionPane.WARNING_MESSAGE);
+        }
+    }
 }

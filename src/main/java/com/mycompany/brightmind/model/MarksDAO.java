@@ -24,7 +24,7 @@ public class MarksDAO {
      * @param marks
      * @return true or false based on affected rows
      */
-    public boolean createStudent(Marks marks){
+    public boolean createMarks(Marks marks){
         String sql = "INSERT INTO marks (student_id,subject_id,exam_type,marks_obtained,max_marks) VALUES (?,?,?,?,?);";
         try(Connection conn = DBUtil.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)){
@@ -47,7 +47,7 @@ public class MarksDAO {
      * @param student
      * @return true or false based on affected rows 
      */
-    public boolean updateStudent(Marks marks){
+    public boolean updateMarks(Marks marks){
         String sql = "UPDATE marks SET student_id=?,subject_id=?,exam_type=?,marks_obtained=?,max_marks=? WHERE mark_id=?;";
         try(Connection conn = DBUtil.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)){
@@ -70,7 +70,7 @@ public class MarksDAO {
      * @param markId
      * @return true or false based on affected rows 
      */
-    public boolean deleteStudent(int markId){
+    public boolean deleteMarks(int markId){
         String sql = "DELETE FROM marks WHERE mark_id=?;";
         try(Connection conn = DBUtil.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)){
@@ -89,7 +89,7 @@ public class MarksDAO {
      * @param subjectId
      * @return a list of marks where student id and subject id match
      */
-    public List<Marks> viewStudentByEmail(int studentId, int subjectId) {
+    public List<Marks> viewMarksBy(int studentId, int subjectId) {
         String sql = "SELECT * FROM marks WHERE student_id =? AND subject_id = ?";
         List<Marks> marksList = new ArrayList();
         try (Connection conn = DBUtil.getConnection();
@@ -99,16 +99,16 @@ public class MarksDAO {
             stmt.setInt(2, subjectId);
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
-                    marksList.add(new Marks(
-                        rs.getInt(rs.getInt("mark_id")),
-                        rs.getInt(rs.getInt("student_id")),
-                        rs.getInt(rs.getInt("subject_id")),
-                        ExamType.valueOf(rs.getString(rs.getString("exam_type"))),
-                        rs.getInt(rs.getInt("marks_obtained")),
-                        rs.getInt(rs.getInt("max_marks"))
-                    ));
+                Marks mark = new Marks(
+                    rs.getInt("mark_id"),
+                    rs.getInt("student_id"),
+                    rs.getInt("subject_id"),
+                    ExamType.valueOf(rs.getString("exam_type")),
+                    rs.getInt("marks_obtained"),
+                    rs.getInt("max_marks")
+                );
+                    marksList.add(mark);
                 }
-                return marksList;
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
