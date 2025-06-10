@@ -374,7 +374,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="btnSubject1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnStOv" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="54" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -385,7 +385,7 @@
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnSubject1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnStOv" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="71" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -404,7 +404,7 @@
             <Property name="text" type="java.lang.String" value="Student Overview"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSubject1">
+        <Component class="javax.swing.JButton" name="btnStOv">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="5e" green="c5" red="22" type="rgb"/>
@@ -442,7 +442,7 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="btnSubject2" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSbOv" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -453,7 +453,7 @@
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnSubject2" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSbOv" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -472,7 +472,7 @@
             <Property name="text" type="java.lang.String" value="Subject Overview"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSubject2">
+        <Component class="javax.swing.JButton" name="btnSbOv">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="5e" green="c5" red="22" type="rgb"/>
@@ -510,7 +510,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="btnSubject3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMaOv" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="53" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -521,7 +521,7 @@
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnSubject3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMaOv" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -540,7 +540,7 @@
             <Property name="text" type="java.lang.String" value="Marks Overview"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSubject3">
+        <Component class="javax.swing.JButton" name="btnMaOv">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="5e" green="c5" red="22" type="rgb"/>

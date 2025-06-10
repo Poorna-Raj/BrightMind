@@ -52,13 +52,13 @@ public class DisplayPanel extends javax.swing.JPanel {
         cmbType = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnSubject1 = new javax.swing.JButton();
+        btnStOv = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        btnSubject2 = new javax.swing.JButton();
+        btnSbOv = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        btnSubject3 = new javax.swing.JButton();
+        btnMaOv = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
 
@@ -220,10 +220,10 @@ public class DisplayPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Student Overview");
 
-        btnSubject1.setBackground(new java.awt.Color(34, 197, 94));
-        btnSubject1.setForeground(new java.awt.Color(0, 0, 0));
-        btnSubject1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
-        btnSubject1.setText("View Report");
+        btnStOv.setBackground(new java.awt.Color(34, 197, 94));
+        btnStOv.setForeground(new java.awt.Color(0, 0, 0));
+        btnStOv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
+        btnStOv.setText("View Report");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -235,7 +235,7 @@ public class DisplayPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(btnSubject1)
+                .addComponent(btnStOv)
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -244,7 +244,7 @@ public class DisplayPanel extends javax.swing.JPanel {
                 .addGap(48, 48, 48)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(btnSubject1)
+                .addComponent(btnStOv)
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -256,10 +256,10 @@ public class DisplayPanel extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Subject Overview");
 
-        btnSubject2.setBackground(new java.awt.Color(34, 197, 94));
-        btnSubject2.setForeground(new java.awt.Color(0, 0, 0));
-        btnSubject2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
-        btnSubject2.setText("View Report");
+        btnSbOv.setBackground(new java.awt.Color(34, 197, 94));
+        btnSbOv.setForeground(new java.awt.Color(0, 0, 0));
+        btnSbOv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
+        btnSbOv.setText("View Report");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -271,7 +271,7 @@ public class DisplayPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSubject2)
+                .addComponent(btnSbOv)
                 .addGap(60, 60, 60))
         );
         jPanel4Layout.setVerticalGroup(
@@ -280,7 +280,7 @@ public class DisplayPanel extends javax.swing.JPanel {
                 .addGap(48, 48, 48)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(btnSubject2)
+                .addComponent(btnSbOv)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -292,10 +292,10 @@ public class DisplayPanel extends javax.swing.JPanel {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Marks Overview");
 
-        btnSubject3.setBackground(new java.awt.Color(34, 197, 94));
-        btnSubject3.setForeground(new java.awt.Color(0, 0, 0));
-        btnSubject3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
-        btnSubject3.setText("View Report");
+        btnMaOv.setBackground(new java.awt.Color(34, 197, 94));
+        btnMaOv.setForeground(new java.awt.Color(0, 0, 0));
+        btnMaOv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
+        btnMaOv.setText("View Report");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -307,7 +307,7 @@ public class DisplayPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(btnSubject3)
+                .addComponent(btnMaOv)
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -316,7 +316,7 @@ public class DisplayPanel extends javax.swing.JPanel {
                 .addGap(48, 48, 48)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(btnSubject3)
+                .addComponent(btnMaOv)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -408,14 +408,26 @@ public class DisplayPanel extends javax.swing.JPanel {
     public JComboBox<String> getCmbType() {
         return cmbType;
     }
+
+    public JButton getBtnMaOv() {
+        return btnMaOv;
+    }
+
+    public JButton getBtnSbOv() {
+        return btnSbOv;
+    }
+
+    public JButton getBtnStOv() {
+        return btnStOv;
+    }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMaOv;
+    private javax.swing.JButton btnSbOv;
+    private javax.swing.JButton btnStOv;
     private javax.swing.JButton btnStudent;
     private javax.swing.JButton btnSubject;
-    private javax.swing.JButton btnSubject1;
-    private javax.swing.JButton btnSubject2;
-    private javax.swing.JButton btnSubject3;
     private javax.swing.JComboBox<String> cmbType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
