@@ -25,6 +25,7 @@ public class DashboardController {
         this.subjectController = subjectController;
         this.marksController = marksController;
         this.displayController = displayController;
+        loadDisplayMng();
         
         this.dashboard.getBtnStudentMng().addActionListener(e-> loadStudentMng());
         this.dashboard.getBtnSubjectMng().addActionListener(e ->loadSubjectMng());
