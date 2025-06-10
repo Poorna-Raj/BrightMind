@@ -5,7 +5,10 @@
 package com.mycompany.brightmind.controller;
 
 import com.mycompany.brightmind.model.DisplayDAO;
+import com.mycompany.brightmind.model.ReportGenrator;
 import com.mycompany.brightmind.view.DisplayPanel;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -18,6 +21,8 @@ public class DisplayController {
     public DisplayController(DisplayPanel displayPanel, DisplayDAO displayDAO) {
         this.displayPanel = displayPanel;
         this.displayDAO = displayDAO;
+        
+        this.displayPanel.getBtnStudent().addActionListener(e -> studentReport());
     }
     
     public void loadDashboardSummery(){
@@ -41,5 +46,21 @@ public class DisplayController {
                 displayPanel.setLblAvgMark(avgMarks + "");
             }
         }.execute();
+    }
+    
+    public void runReport(String filePath,Map<String,Object> params){
+        ReportGenrator reportGenrator = new ReportGenrator(filePath,params);
+        Thread thread = new Thread(reportGenrator);
+        thread.start();
+    }
+    
+    public void studentReport(){
+        Integer studentId = Integer.parseInt(displayPanel.getTxtStudentId().getText());
+        String filePath = "/Reports/Student Report.jasper";
+        Map<String,Object> params = new HashMap<>();
+        params.put("student_id", studentId);
+        
+        runReport(filePath,params);
+        displayPanel.getTxtStudentId().setText("");
     }
 }
