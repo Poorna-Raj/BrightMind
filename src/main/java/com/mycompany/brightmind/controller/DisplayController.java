@@ -9,6 +9,7 @@ import com.mycompany.brightmind.model.ReportGenrator;
 import com.mycompany.brightmind.view.DisplayPanel;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +24,7 @@ public class DisplayController {
         this.displayDAO = displayDAO;
         
         this.displayPanel.getBtnStudent().addActionListener(e -> studentReport());
+        this.displayPanel.getBtnSubject().addActionListener(e -> subjectReport());
     }
     
     public void loadDashboardSummery(){
@@ -43,7 +45,6 @@ public class DisplayController {
             protected void done(){
                 displayPanel.setLblToStudents(totalStudents + "");
                 displayPanel.setLblToSubjects(totalSubjects + "");
-                displayPanel.setLblAvgMark(avgMarks + "");
             }
         }.execute();
     }
@@ -55,12 +56,27 @@ public class DisplayController {
     }
     
     public void studentReport(){
-        Integer studentId = Integer.parseInt(displayPanel.getTxtStudentId().getText());
-        String filePath = "/Reports/Student Report.jasper";
+        try{
+            Integer studentId = Integer.parseInt(displayPanel.getTxtStudentId().getText());
+            String filePath = "/Reports/Student Report.jasper";
+            Map<String,Object> params = new HashMap<>();
+            params.put("student_id", studentId);
+        
+            runReport(filePath,params);
+            displayPanel.getTxtStudentId().setText("");
+        }
+        catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(displayPanel, "Please Enter a student ID!","Operation Failed",JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    public void subjectReport(){
+        String type = displayPanel.getCmbType().getSelectedItem().toString();
+        String filePath = "/Reports/Mark Analysis.jasper";
         Map<String,Object> params = new HashMap<>();
-        params.put("student_id", studentId);
+        params.put("exam_type", type);
         
         runReport(filePath,params);
-        displayPanel.getTxtStudentId().setText("");
+        
     }
 }
