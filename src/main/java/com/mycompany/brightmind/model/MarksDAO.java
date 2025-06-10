@@ -38,7 +38,7 @@ public class MarksDAO {
             return rowA == 1;
         } 
         catch (SQLException ex) {
-            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MarksDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
@@ -61,7 +61,7 @@ public class MarksDAO {
             int rowA = stmt.executeUpdate();
             return rowA ==1;
         } catch (SQLException ex) {
-            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MarksDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
@@ -79,7 +79,7 @@ public class MarksDAO {
             
             return rowA == 1;
         } catch (SQLException ex) {
-            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MarksDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
@@ -111,7 +111,7 @@ public class MarksDAO {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MarksDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -135,7 +135,7 @@ public class MarksDAO {
 }
             return marksList;
         } catch (SQLException ex) {
-            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MarksDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

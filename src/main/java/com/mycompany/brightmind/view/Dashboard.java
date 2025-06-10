@@ -21,16 +21,19 @@ public class Dashboard extends javax.swing.JFrame {
     private StudentPanel studentPanel;
     private SubjectPanel subjectPanel;
     private MarksPanel marksPanel;
+    private DisplayPanel displayPanel;
 
-    public Dashboard(StudentPanel studentPanel,SubjectPanel subjectPanel, MarksPanel marksPanel) {
+    public Dashboard(StudentPanel studentPanel,SubjectPanel subjectPanel, MarksPanel marksPanel,DisplayPanel displayPanel) {
         this.studentPanel = studentPanel;
         this.subjectPanel = subjectPanel;
         this.marksPanel = marksPanel;
+        this.displayPanel = displayPanel;
         initComponents();
         
         viewPanel.add(studentPanel, "studentPanel");
         viewPanel.add(subjectPanel, "subjectPanel");
         viewPanel.add(marksPanel, "marksPanel");
+        viewPanel.add(displayPanel, "displayPanel");
     }
 
     /**

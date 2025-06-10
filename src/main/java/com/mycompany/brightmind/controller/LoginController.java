@@ -4,12 +4,14 @@
  */
 package com.mycompany.brightmind.controller;
 
+import com.mycompany.brightmind.model.DisplayDAO;
 import com.mycompany.brightmind.model.MarksDAO;
 import com.mycompany.brightmind.model.StudentDAO;
 import com.mycompany.brightmind.model.SubjectDAO;
 import com.mycompany.brightmind.model.User;
 import com.mycompany.brightmind.model.UserDAO;
 import com.mycompany.brightmind.view.Dashboard;
+import com.mycompany.brightmind.view.DisplayPanel;
 import com.mycompany.brightmind.view.LoginView;
 import com.mycompany.brightmind.view.MarksPanel;
 import com.mycompany.brightmind.view.StudentPanel;
@@ -51,8 +53,12 @@ public class LoginController {
             MarksDAO marksDAO = new MarksDAO();
             MarksController marksController = new MarksController(marksPanel,marksDAO);
             
-            Dashboard dashboard = new Dashboard(studentPanel,subjectPanel,marksPanel);
-            DashboardController dashboardController = new DashboardController(dashboard, studentController,subjectController,marksController);
+            DisplayPanel displayPanel = new DisplayPanel();
+            DisplayDAO displayDAO = new DisplayDAO();
+            DisplayController displayController = new DisplayController(displayPanel,displayDAO);
+            
+            Dashboard dashboard = new Dashboard(studentPanel,subjectPanel,marksPanel,displayPanel);
+            DashboardController dashboardController = new DashboardController(dashboard, studentController,subjectController,marksController,displayController);
 
             dashboard.setVisible(true);
             view.hide();
