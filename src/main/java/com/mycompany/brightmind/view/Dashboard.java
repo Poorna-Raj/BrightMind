@@ -5,8 +5,10 @@
 package com.mycompany.brightmind.view;
 
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -29,11 +31,12 @@ public class Dashboard extends javax.swing.JFrame {
         this.marksPanel = marksPanel;
         this.displayPanel = displayPanel;
         initComponents();
-        
+
         viewPanel.add(studentPanel, "studentPanel");
         viewPanel.add(subjectPanel, "subjectPanel");
         viewPanel.add(marksPanel, "marksPanel");
         viewPanel.add(displayPanel, "displayPanel");
+        refreshUIRecursively(this);
     }
 
     /**
@@ -66,8 +69,9 @@ public class Dashboard extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1080, 720));
 
         jSplitPane1.setDividerLocation(300);
+        jSplitPane1.setDividerSize(0);
 
-        menuPanel.setBackground(new java.awt.Color(255, 255, 255));
+        menuPanel.setBackground(new java.awt.Color(230, 247, 235));
         menuPanel.setMinimumSize(new java.awt.Dimension(300, 100));
         menuPanel.setPreferredSize(new java.awt.Dimension(300, 720));
 
@@ -257,6 +261,18 @@ public class Dashboard extends javax.swing.JFrame {
         cl.show(viewPanel, name);
     }
 
+    public static void refreshUIRecursively(Component comp) {
+        SwingUtilities.updateComponentTreeUI(comp);
+        if (comp instanceof javax.swing.JComponent jComp) {
+            jComp.revalidate();
+            jComp.repaint();
+        }
+        if (comp instanceof java.awt.Container container) {
+            for (Component child : container.getComponents()) {
+                refreshUIRecursively(child);
+            }
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnLogout;

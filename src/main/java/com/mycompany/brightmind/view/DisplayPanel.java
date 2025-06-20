@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -33,7 +34,6 @@ public class DisplayPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -61,23 +61,13 @@ public class DisplayPanel extends javax.swing.JPanel {
         btnMaOv = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(247, 250, 252));
+        setForeground(new java.awt.Color(247, 250, 252));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 29, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
-        );
-
-        jPanel7.setBackground(new java.awt.Color(233, 249, 239));
+        jPanel7.setBackground(new java.awt.Color(236, 253, 245));
         jPanel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel7.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -92,10 +82,11 @@ public class DisplayPanel extends javax.swing.JPanel {
 
         txtStudentId.setForeground(new java.awt.Color(0, 0, 0));
 
-        btnStudent.setBackground(new java.awt.Color(34, 197, 94));
+        btnStudent.setBackground(new java.awt.Color(56, 161, 105));
         btnStudent.setForeground(new java.awt.Color(0, 0, 0));
         btnStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
         btnStudent.setText("View Report");
+        btnStudent.setOpaque(true);
 
         lblToStudents.setForeground(new java.awt.Color(0, 0, 0));
         lblToStudents.setText("jLabel6");
@@ -145,18 +136,20 @@ public class DisplayPanel extends javax.swing.JPanel {
                 .addContainerGap(68, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(233, 249, 239));
+        add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 22, 750, -1));
+
+        jPanel3.setBackground(new java.awt.Color(236, 253, 245));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Subject Analysiz");
+        jLabel8.setText("Subject Analysis");
 
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Exam Type :");
 
-        btnSubject.setBackground(new java.awt.Color(34, 197, 94));
+        btnSubject.setBackground(new java.awt.Color(56, 161, 105));
         btnSubject.setForeground(new java.awt.Color(0, 0, 0));
         btnSubject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
         btnSubject.setText("View Report");
@@ -178,7 +171,7 @@ public class DisplayPanel extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(108, 108, 108)
@@ -212,7 +205,9 @@ public class DisplayPanel extends javax.swing.JPanel {
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(233, 249, 239));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 225, 750, -1));
+
+        jPanel1.setBackground(new java.awt.Color(236, 253, 245));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -220,7 +215,7 @@ public class DisplayPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Student Overview");
 
-        btnStOv.setBackground(new java.awt.Color(34, 197, 94));
+        btnStOv.setBackground(new java.awt.Color(56, 161, 105));
         btnStOv.setForeground(new java.awt.Color(0, 0, 0));
         btnStOv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
         btnStOv.setText("View Report");
@@ -248,7 +243,9 @@ public class DisplayPanel extends javax.swing.JPanel {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(233, 249, 239));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 432, -1, -1));
+
+        jPanel4.setBackground(new java.awt.Color(236, 253, 245));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -256,7 +253,7 @@ public class DisplayPanel extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Subject Overview");
 
-        btnSbOv.setBackground(new java.awt.Color(34, 197, 94));
+        btnSbOv.setBackground(new java.awt.Color(56, 161, 105));
         btnSbOv.setForeground(new java.awt.Color(0, 0, 0));
         btnSbOv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
         btnSbOv.setText("View Report");
@@ -284,7 +281,9 @@ public class DisplayPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(233, 249, 239));
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 432, 240, 193));
+
+        jPanel5.setBackground(new java.awt.Color(236, 253, 245));
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -292,7 +291,7 @@ public class DisplayPanel extends javax.swing.JPanel {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Marks Overview");
 
-        btnMaOv.setBackground(new java.awt.Color(34, 197, 94));
+        btnMaOv.setBackground(new java.awt.Color(56, 161, 105));
         btnMaOv.setForeground(new java.awt.Color(0, 0, 0));
         btnMaOv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
         btnMaOv.setText("View Report");
@@ -308,7 +307,7 @@ public class DisplayPanel extends javax.swing.JPanel {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(btnMaOv)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,7 +319,9 @@ public class DisplayPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(34, 197, 94));
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 432, 220, 193));
+
+        jPanel2.setBackground(new java.awt.Color(56, 161, 105));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, null));
 
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
@@ -343,45 +344,10 @@ public class DisplayPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(222, 222, 222)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 631, 750, -1));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background.png"))); // NOI18N
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 770));
     }// </editor-fold>//GEN-END:initComponents
     
 
@@ -432,6 +398,7 @@ public class DisplayPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -446,7 +413,6 @@ public class DisplayPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JLabel lblToStudents;
     private javax.swing.JLabel lblToSubjects;

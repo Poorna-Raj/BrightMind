@@ -30,12 +30,12 @@ public class LoginController {
         this.view = view;
         this.userDAO = userDAO;
         
-        this.view.btnLogin.addActionListener(e -> authenticate());
+        this.view.getBtnLogin().addActionListener(e -> authenticate());
     }
 
     private void authenticate() {
-        String email = view.txtEmail.getText();
-        String password = view.txtPassword.getText();
+        String email = view.getTxtEmail().getText();
+        String password = view.getTxtPassword().getText();
         
         user = new User(email,password);
         
@@ -65,7 +65,7 @@ public class LoginController {
         });
         }
         else{
-            view.txtMessage.setText("Login Failed");
+            view.getTxtMessage().setText("Login Failed");
         }
     }
     
