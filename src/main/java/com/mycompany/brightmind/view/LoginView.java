@@ -4,6 +4,8 @@
  */
 package com.mycompany.brightmind.view;
 
+import java.io.InputStream;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -20,6 +22,8 @@ public class LoginView extends javax.swing.JFrame {
      */
     public LoginView() {
         initComponents();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/images/frameIcon.png"));
+        setIconImage(icon.getImage());
     }
 
     /**

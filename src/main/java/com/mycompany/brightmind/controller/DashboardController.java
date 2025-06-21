@@ -4,7 +4,9 @@
  */
 package com.mycompany.brightmind.controller;
 
+import com.mycompany.brightmind.model.UserDAO;
 import com.mycompany.brightmind.view.Dashboard;
+import com.mycompany.brightmind.view.LoginView;
 import com.mycompany.brightmind.view.StudentPanel;
 import java.awt.CardLayout;
 
@@ -31,7 +33,7 @@ public class DashboardController {
         this.dashboard.getBtnSubjectMng().addActionListener(e ->loadSubjectMng());
         this.dashboard.getBtnMarksMng().addActionListener(e -> loadMarksMng());
         this.dashboard.getBtnDashboard().addActionListener(e -> loadDisplayMng());
-        
+        this.dashboard.getBtnLogout().addActionListener(e -> logout());
     }
     
     public void loadStudentMng(){
@@ -54,5 +56,16 @@ public class DashboardController {
         dashboard.switchView("displayPanel");
         System.out.println("Switched to Display Panel");
         displayController.loadDashboardSummery();
+    }
+    
+    public void logout(){
+            LoginView login = new LoginView();
+            UserDAO userDAO = new UserDAO();
+            LoginController loginController = new LoginController(login,userDAO);
+            login.setTitle("BrightMind - Login Portal");
+            login.setResizable(false);
+            login.setLocationRelativeTo(null);
+            dashboard.hide();
+            login.setVisible(true);
     }
 }

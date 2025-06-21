@@ -6,6 +6,7 @@ package com.mycompany.brightmind.view;
 
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -31,7 +32,8 @@ public class Dashboard extends javax.swing.JFrame {
         this.marksPanel = marksPanel;
         this.displayPanel = displayPanel;
         initComponents();
-
+        ImageIcon icon = new ImageIcon(getClass().getResource("/images/frameIcon.png"));
+        setIconImage(icon.getImage());
         viewPanel.add(studentPanel, "studentPanel");
         viewPanel.add(subjectPanel, "subjectPanel");
         viewPanel.add(marksPanel, "marksPanel");
@@ -55,7 +57,6 @@ public class Dashboard extends javax.swing.JFrame {
         btnStudentMng = new javax.swing.JButton();
         btnSubjectMng = new javax.swing.JButton();
         btnMarksMng = new javax.swing.JButton();
-        btnUserMng = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         viewPanel = new javax.swing.JPanel();
 
@@ -121,17 +122,6 @@ public class Dashboard extends javax.swing.JFrame {
         btnMarksMng.setFocusPainted(false);
         btnMarksMng.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
-        btnUserMng.setBackground(new java.awt.Color(255, 255, 255));
-        btnUserMng.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnUserMng.setForeground(new java.awt.Color(0, 0, 0));
-        btnUserMng.setText("User Management");
-        btnUserMng.setBorder(null);
-        btnUserMng.setBorderPainted(false);
-        btnUserMng.setContentAreaFilled(false);
-        btnUserMng.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnUserMng.setFocusPainted(false);
-        btnUserMng.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-
         btnLogout.setBackground(new java.awt.Color(255, 255, 255));
         btnLogout.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(0, 0, 0));
@@ -155,7 +145,6 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnLogout)
-                    .addComponent(btnUserMng)
                     .addComponent(btnMarksMng)
                     .addComponent(btnSubjectMng)
                     .addComponent(btnStudentMng)
@@ -169,17 +158,15 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(95, 95, 95)
                 .addComponent(btnDashboard)
-                .addGap(36, 36, 36)
+                .addGap(40, 40, 40)
                 .addComponent(btnStudentMng)
-                .addGap(37, 37, 37)
+                .addGap(40, 40, 40)
                 .addComponent(btnSubjectMng)
-                .addGap(32, 32, 32)
+                .addGap(40, 40, 40)
                 .addComponent(btnMarksMng)
-                .addGap(33, 33, 33)
-                .addComponent(btnUserMng)
-                .addGap(27, 27, 27)
+                .addGap(40, 40, 40)
                 .addComponent(btnLogout)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(menuPanel);
@@ -251,10 +238,6 @@ public class Dashboard extends javax.swing.JFrame {
     public JButton getBtnSubjectMng() {
         return btnSubjectMng;
     }
-
-    public JButton getBtnUserMng() {
-        return btnUserMng;
-    }
     
     public void switchView(String name) {
         CardLayout cl = (CardLayout) viewPanel.getLayout();
@@ -279,7 +262,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnMarksMng;
     private javax.swing.JButton btnStudentMng;
     private javax.swing.JButton btnSubjectMng;
-    private javax.swing.JButton btnUserMng;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPanel menuPanel;

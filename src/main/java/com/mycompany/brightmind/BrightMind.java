@@ -36,6 +36,7 @@ public class BrightMind {
             UserDAO userDAO = new UserDAO();
             LoginController loginController = new LoginController(login,userDAO);
             login.setTitle("BrightMind - Login Portal");
+            login.setResizable(false);
             login.setLocationRelativeTo(null);
             login.setVisible(true);
         });
