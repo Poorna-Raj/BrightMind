@@ -36,100 +36,28 @@ public class StudentPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblStudent = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtFirstName = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         txtLastName = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         txtDob = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
         btnCreate = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        txtId = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
         lbError = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblStudent = new javax.swing.JTable();
+        txtId = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("First Name : ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
-
-        txtFirstName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtFirstName.setForeground(new java.awt.Color(0, 0, 0));
-        add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 171, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Last Name : ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, -1, -1));
-
-        txtLastName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtLastName.setForeground(new java.awt.Color(0, 0, 0));
-        add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 171, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Email : ");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 480, -1, -1));
-
-        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEmail.setForeground(new java.awt.Color(0, 0, 0));
-        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 171, -1));
-
-        txtDob.setForeground(new java.awt.Color(0, 0, 0));
-        txtDob.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("y-M-d"))));
-        txtDob.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        add(txtDob, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, 171, -1));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Date of Birth : ");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, -1, -1));
-
-        btnCreate.setBackground(new java.awt.Color(34, 197, 94));
-        btnCreate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnCreate.setForeground(new java.awt.Color(0, 0, 0));
-        btnCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/create.png"))); // NOI18N
-        btnCreate.setText("Create");
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 99, -1));
-
-        btnUpdate.setBackground(new java.awt.Color(34, 197, 94));
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(0, 0, 0));
-        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
-        btnUpdate.setText("Update");
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 540, -1, -1));
-
-        btnSearch.setBackground(new java.awt.Color(34, 197, 94));
-        btnSearch.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnSearch.setForeground(new java.awt.Color(0, 0, 0));
-        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
-        btnSearch.setText("Search");
-        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 540, 99, -1));
-
-        btnDelete.setBackground(new java.awt.Color(34, 197, 94));
-        btnDelete.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(0, 0, 0));
-        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/delete.png"))); // NOI18N
-        btnDelete.setText("Delete");
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 99, -1));
-
-        txtId.setEditable(false);
-        add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, -1, -1));
-
-        lbError.setBackground(new java.awt.Color(255, 255, 255));
-        lbError.setForeground(new java.awt.Color(255, 0, 0));
-        lbError.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        add(lbError, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 769, 20));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -138,7 +66,7 @@ public class StudentPanel extends javax.swing.JPanel {
         jLabel1.setText("Welcome to Student Management ");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 40));
 
-        tblStudent.setBackground(new java.awt.Color(255, 255, 255));
+        tblStudent.setBackground(new java.awt.Color(236, 253, 245));
         tblStudent.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblStudent.setForeground(new java.awt.Color(0, 0, 0));
         tblStudent.setModel(new javax.swing.table.DefaultTableModel(
@@ -170,6 +98,135 @@ public class StudentPanel extends javax.swing.JPanel {
         }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, 775, 390));
+
+        jPanel1.setBackground(new java.awt.Color(236, 253, 245));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("First Name : ");
+
+        txtFirstName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtFirstName.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtLastName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtLastName.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Last Name : ");
+
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Email : ");
+
+        txtDob.setForeground(new java.awt.Color(0, 0, 0));
+        txtDob.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("y-M-d"))));
+        txtDob.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Date of Birth : ");
+
+        btnCreate.setBackground(new java.awt.Color(34, 197, 94));
+        btnCreate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(0, 0, 0));
+        btnCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/create.png"))); // NOI18N
+        btnCreate.setText("Create");
+
+        btnUpdate.setBackground(new java.awt.Color(34, 197, 94));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(0, 0, 0));
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/update.png"))); // NOI18N
+        btnUpdate.setText("Update");
+
+        btnDelete.setBackground(new java.awt.Color(34, 197, 94));
+        btnDelete.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(0, 0, 0));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/delete.png"))); // NOI18N
+        btnDelete.setText("Delete");
+
+        btnSearch.setBackground(new java.awt.Color(34, 197, 94));
+        btnSearch.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(0, 0, 0));
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
+        btnSearch.setText("Search");
+
+        lbError.setBackground(new java.awt.Color(255, 255, 255));
+        lbError.setForeground(new java.awt.Color(255, 0, 0));
+        lbError.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        txtId.setEditable(false);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtDob, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                            .addComponent(txtEmail)
+                            .addComponent(txtLastName)
+                            .addComponent(txtFirstName))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCreate)
+                            .addComponent(btnUpdate)
+                            .addComponent(btnDelete)
+                            .addComponent(btnSearch))))
+                .addGap(96, 96, 96))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreate, btnDelete, btnSearch, btnUpdate});
+
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCreate)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(btnUpdate))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(btnDelete))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(btnSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreate, btnDelete, btnSearch, btnUpdate});
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 437, 763, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background.png"))); // NOI18N
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 780, 730));
@@ -274,6 +331,7 @@ public class StudentPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbError;
     private javax.swing.JTable tblStudent;
