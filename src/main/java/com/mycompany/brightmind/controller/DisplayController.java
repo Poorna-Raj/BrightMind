@@ -84,21 +84,18 @@ public class DisplayController {
     }
     
     public void subjectOverview(){
-        String type = displayPanel.getCmbType().getSelectedItem().toString();
         String filePath = "/Reports/Subject Overview.jasper";
         
         runReport(filePath,null);
     }
     
     public void studentOverview(){
-        String type = displayPanel.getCmbType().getSelectedItem().toString();
         String filePath = "/Reports/Student Overview.jasper";
         
         runReport(filePath,null);
     }
     
     public void marksOverview(){
-        String type = displayPanel.getCmbType().getSelectedItem().toString();
         String filePath = "/Reports/Marks Overview.jasper";
         
         runReport(filePath,null);

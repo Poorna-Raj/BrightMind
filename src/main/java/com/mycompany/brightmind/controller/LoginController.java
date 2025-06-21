@@ -16,6 +16,7 @@ import com.mycompany.brightmind.view.LoginView;
 import com.mycompany.brightmind.view.MarksPanel;
 import com.mycompany.brightmind.view.StudentPanel;
 import com.mycompany.brightmind.view.SubjectPanel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,6 +37,11 @@ public class LoginController {
     private void authenticate() {
         String email = view.getTxtEmail().getText();
         String password = view.getTxtPassword().getText();
+        
+        if(email.isBlank() || email.isEmpty() || password.isBlank() || password.isEmpty()){
+            JOptionPane.showMessageDialog(view,"Please enter both email and password.","Authentication Failed",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
         user = new User(email,password);
         
@@ -60,12 +66,14 @@ public class LoginController {
             Dashboard dashboard = new Dashboard(studentPanel,subjectPanel,marksPanel,displayPanel);
             DashboardController dashboardController = new DashboardController(dashboard, studentController,subjectController,marksController,displayController);
 
+            dashboard.setTitle("BrightMind - Dashboard");
+            dashboard.setLocationRelativeTo(null);
             dashboard.setVisible(true);
             view.hide();
         });
         }
         else{
-            view.getTxtMessage().setText("Login Failed");
+            JOptionPane.showMessageDialog(view,"Invalid Email or Password","Authentication Failed",JOptionPane.ERROR_MESSAGE);
         }
     }
     

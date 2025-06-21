@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -24,7 +25,7 @@ public class MarksDAO {
      * @param marks
      * @return true or false based on affected rows
      */
-    public boolean createMarks(Marks marks){
+    public boolean createMarks(Marks marks) throws SQLIntegrityConstraintViolationException{
         String sql = "INSERT INTO marks (student_id,subject_id,exam_type,marks_obtained,max_marks) VALUES (?,?,?,?,?);";
         try(Connection conn = DBUtil.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)){
@@ -37,6 +38,9 @@ public class MarksDAO {
             int rowA = stmt.executeUpdate();
             return rowA == 1;
         } 
+        catch(SQLIntegrityConstraintViolationException sqlICVe){
+            throw new SQLIntegrityConstraintViolationException("Foreign key constraint fails");
+        }
         catch (SQLException ex) {
             Logger.getLogger(MarksDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
@@ -47,7 +51,7 @@ public class MarksDAO {
      * @param student
      * @return true or false based on affected rows 
      */
-    public boolean updateMarks(Marks marks){
+    public boolean updateMarks(Marks marks) throws SQLIntegrityConstraintViolationException{
         String sql = "UPDATE marks SET student_id=?,subject_id=?,exam_type=?,marks_obtained=?,max_marks=? WHERE mark_id=?;";
         try(Connection conn = DBUtil.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)){
@@ -60,7 +64,11 @@ public class MarksDAO {
             
             int rowA = stmt.executeUpdate();
             return rowA ==1;
-        } catch (SQLException ex) {
+        }
+        catch(SQLIntegrityConstraintViolationException sqlICVe){
+            throw new SQLIntegrityConstraintViolationException("Foreign key constraint fails");
+        }
+        catch (SQLException ex) {
             Logger.getLogger(MarksDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
@@ -109,6 +117,7 @@ public class MarksDAO {
                 );
                     marksList.add(mark);
                 }
+                return marksList;
             }
         } catch (SQLException ex) {
             Logger.getLogger(MarksDAO.class.getName()).log(Level.SEVERE, null, ex);

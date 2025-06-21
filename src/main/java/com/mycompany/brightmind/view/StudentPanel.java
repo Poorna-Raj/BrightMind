@@ -63,7 +63,7 @@ public class StudentPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Welcome to Student Management ");
+        jLabel1.setText("Student Management ");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 40));
 
         tblStudent.setBackground(new java.awt.Color(236, 253, 245));
@@ -97,7 +97,7 @@ public class StudentPanel extends javax.swing.JPanel {
             tblStudent.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, 775, 390));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, 750, 390));
 
         jPanel1.setBackground(new java.awt.Color(236, 253, 245));
 

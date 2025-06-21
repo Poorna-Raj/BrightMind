@@ -79,28 +79,39 @@ public class SubjectController {
     }
 
     private void createSubject() {
-        try{
-            String code = subjectPanel.getTxtCode().getText();
-            String name = subjectPanel.getTxtName().getText();
-            String des = subjectPanel.getTxtaDes().getText();
+        try {
+            String code = subjectPanel.getTxtCode().getText().trim();
+            String name = subjectPanel.getTxtName().getText().trim();
+            String des = subjectPanel.getTxtaDes().getText().trim();
             int points = (int) subjectPanel.getNumPoints().getValue();
-            
-            subject = new Subject(code,name,des,points);
+
+            if (code.isBlank() || name.isBlank() || des.isBlank()) {
+                JOptionPane.showMessageDialog(subjectPanel,"Please fill in all the fields: Code, Name, and Description.","Validation Error",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            if (points <= 0) {
+                JOptionPane.showMessageDialog(subjectPanel,"Credit points must be greater than 0.","Invalid Points",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            subject = new Subject(code, name, des, points);
             boolean success = subjectDAO.createSubject(subject);
-            if(success){
-                JOptionPane.showMessageDialog(subjectPanel, "Subject Created Successfully.", "Operation Complete!", JOptionPane.INFORMATION_MESSAGE);
+
+            if (success) {
+                JOptionPane.showMessageDialog(subjectPanel,"Subject created successfully.","Operation Complete",JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(subjectPanel,"Subject creation failed. Please try again.","Operation Failed",JOptionPane.ERROR_MESSAGE);
             }
-            else{
-                JOptionPane.showMessageDialog(subjectPanel, "Subject Creation Failed.", "Operation Failed!", JOptionPane.ERROR_MESSAGE);
-            }
+
             loadSubjects();
             clearFields();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(subjectPanel,"An unexpected error occurred: " + e.getMessage(),"Operation Failed",JOptionPane.ERROR_MESSAGE);
         }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(subjectPanel, e.getMessage(), "Operation Failed!", JOptionPane.WARNING_MESSAGE);
-        }
-        
     }
+
 
     private void updateSubject() {
         try{

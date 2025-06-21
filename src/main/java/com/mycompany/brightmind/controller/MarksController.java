@@ -8,6 +8,7 @@ import com.mycompany.brightmind.model.ExamType;
 import com.mycompany.brightmind.model.Marks;
 import com.mycompany.brightmind.model.MarksDAO;
 import com.mycompany.brightmind.view.MarksPanel;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,7 @@ public class MarksController {
     void loadMarks() {
         List<Marks> marksList = marksDAO.getAllMarks();
         if(marksList == null){
-            System.out.println("Subject list is empty");
+            JOptionPane.showMessageDialog(marksPanel,"Marks Table is Empty","Failed to Fetch Marks",JOptionPane.ERROR_MESSAGE);
         }
         marksPanel.updateTable(marksList);
     }
@@ -92,56 +93,108 @@ public class MarksController {
         marksPanel.setTxtMax("");
     }
     
-    public void createMarks(){
-        try{
-            int studentId = Integer.parseInt(marksPanel.getTxtStudentId().getText());
-            int subjectId = Integer.parseInt(marksPanel.getTxtSubjectId().getText());
+    public void createMarks() {
+        try {
+            String studentIdText = marksPanel.getTxtStudentId().getText();
+            String subjectIdText = marksPanel.getTxtSubjectId().getText();
             String selectedType = (String) marksPanel.getCmbExamtype().getSelectedItem();
-            ExamType type = ExamType.valueOf(selectedType); 
-            int obtainedMarks = Integer.parseInt(marksPanel.getTxtMarks().getText());
-            int max = Integer.parseInt(marksPanel.getTxtMax().getText());
-            
+            String obtainedMarksText = marksPanel.getTxtMarks().getText();
+            String maxText = marksPanel.getTxtMax().getText();
+
+            if (studentIdText.isBlank() || subjectIdText.isBlank() || selectedType == null ||
+                obtainedMarksText.isBlank() || maxText.isBlank()) {
+                JOptionPane.showMessageDialog(marksPanel,"Please fill in all the fields before submitting.","Validation Error",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            int studentId = Integer.parseInt(studentIdText);
+            int subjectId = Integer.parseInt(subjectIdText);
+            int obtainedMarks = Integer.parseInt(obtainedMarksText);
+            int max = Integer.parseInt(maxText);
+            ExamType type = ExamType.valueOf(selectedType);
+
+            if (obtainedMarks < 0 || obtainedMarks > max) {
+                JOptionPane.showMessageDialog(marksPanel,"Obtained marks should be between 0 and the maximum marks.","Invalid Marks",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
             marks = new Marks(studentId, subjectId, type, obtainedMarks, max);
             boolean success = marksDAO.createMarks(marks);
-            if(success){
-                JOptionPane.showMessageDialog(marksPanel, "Marks Added Successfully.", "Operation Complete!", JOptionPane.INFORMATION_MESSAGE);
+
+            if (success) {
+                JOptionPane.showMessageDialog(marksPanel,"Marks added successfully.","Operation Complete",JOptionPane.INFORMATION_MESSAGE);
+            } 
+            else {
+                JOptionPane.showMessageDialog(marksPanel,"Failed to add marks. Please try again.","Operation Failed",JOptionPane.ERROR_MESSAGE);
             }
-            else{
-                JOptionPane.showMessageDialog(marksPanel, "Marks addition Failed.", "Operation Failed!", JOptionPane.ERROR_MESSAGE);
-            }
+
             loadMarks();
             clearFields();
+        } 
+        catch(SQLIntegrityConstraintViolationException sqlEx){
+            JOptionPane.showMessageDialog(marksPanel,"Please check the Student ID or Subject ID!","Invalid Input",JOptionPane.ERROR_MESSAGE);
         }
-        catch(Exception ex){
-            JOptionPane.showMessageDialog(marksPanel, ex.getMessage(), "Operation Failed!", JOptionPane.ERROR_MESSAGE);
+        catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(marksPanel,"Student ID, Subject ID, Obtained Marks, and Max Marks must be valid numbers.","Invalid Input",JOptionPane.ERROR_MESSAGE);
+        } 
+        catch (Exception ex) {
+            JOptionPane.showMessageDialog(marksPanel,"An unexpected error occurred: " + ex.getMessage(),"Operation Failed",JOptionPane.ERROR_MESSAGE);
         }
     }
+
     
     public void updateMarks(){
-        try{
-            int marksId = Integer.parseInt(marksPanel.getTxtMarksId().getText());
-            int studentId = Integer.parseInt(marksPanel.getTxtStudentId().getText());
-            int subjectId = Integer.parseInt(marksPanel.getTxtSubjectId().getText());
+        try {
+            String marksIdText = marksPanel.getTxtMarksId().getText();
+            String studentIdText = marksPanel.getTxtStudentId().getText();
+            String subjectIdText = marksPanel.getTxtSubjectId().getText();
             String selectedType = (String) marksPanel.getCmbExamtype().getSelectedItem();
-            ExamType type = ExamType.valueOf(selectedType); 
-            int obtainedMarks = Integer.parseInt(marksPanel.getTxtMarks().getText());
-            int max = Integer.parseInt(marksPanel.getTxtMax().getText());
-            
-            marks = new Marks(marksId,studentId, subjectId, type, obtainedMarks, max);
+            String obtainedMarksText = marksPanel.getTxtMarks().getText();
+            String maxText = marksPanel.getTxtMax().getText();
+
+            if (marksIdText.isBlank() || studentIdText.isBlank() || subjectIdText.isBlank() ||
+                selectedType == null || obtainedMarksText.isBlank() || maxText.isBlank()) {
+                JOptionPane.showMessageDialog(marksPanel,"Please fill in all the fields before updating.","Validation Error",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            int marksId = Integer.parseInt(marksIdText);
+            int studentId = Integer.parseInt(studentIdText);
+            int subjectId = Integer.parseInt(subjectIdText);
+            int obtainedMarks = Integer.parseInt(obtainedMarksText);
+            int max = Integer.parseInt(maxText);
+            ExamType type = ExamType.valueOf(selectedType);
+
+            if (obtainedMarks < 0 || obtainedMarks > max) {
+                JOptionPane.showMessageDialog(marksPanel,"Obtained marks must be between 0 and maximum marks.","Invalid Marks",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            marks = new Marks(marksId, studentId, subjectId, type, obtainedMarks, max);
             boolean success = marksDAO.updateMarks(marks);
-            if(success){
-                JOptionPane.showMessageDialog(marksPanel, "Marks Updated Successfully.", "Operation Complete!", JOptionPane.INFORMATION_MESSAGE);
+
+            if (success) {
+                JOptionPane.showMessageDialog(marksPanel,"Marks updated successfully.","Operation Complete",JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(marksPanel,"Failed to update marks. Please try again.","Operation Failed",JOptionPane.ERROR_MESSAGE);
             }
-            else{
-                JOptionPane.showMessageDialog(marksPanel, "Marks Updation Failed.", "Operation Failed!", JOptionPane.ERROR_MESSAGE);
-            }
+
             loadMarks();
             clearFields();
+
+        } 
+        catch(SQLIntegrityConstraintViolationException sqlEx){
+            JOptionPane.showMessageDialog(marksPanel,"Please check the Student ID or Subject ID!","Invalid Input",JOptionPane.ERROR_MESSAGE);
         }
-        catch(Exception ex){
-            JOptionPane.showMessageDialog(marksPanel, ex.getMessage(), "Operation Failed!", JOptionPane.ERROR_MESSAGE);
+        catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(marksPanel,"Student ID, Subject ID, Obtained Marks, and Max Marks must be valid numbers.","Invalid Input",JOptionPane.ERROR_MESSAGE);
+        } 
+        catch (Exception ex) {
+            JOptionPane.showMessageDialog(marksPanel,"An unexpected error occurred: " + ex.getMessage(),"Operation Failed",JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    
     
     public void deleteMarks(){
         try{
@@ -185,6 +238,7 @@ public class MarksController {
                 }
                 else{
                     marksPanel.updateTable(filteredMarks);
+                    clearFields();
                 }
             }
             

@@ -80,47 +80,76 @@ public class StudentController {
 
 
     
-    public void createStudent(){
-        try{
-            String firstName = studentView.getTxtFirstName().getText();
-            String lastName = studentView.getTxtLastName().getText();
-            String email = studentView.getTxtEmail().getText();
-            String dobTxt = studentView.getTxtDob().getText();
-            
+    public void createStudent() {
+        try {
+            String firstName = studentView.getTxtFirstName().getText().trim();
+            String lastName = studentView.getTxtLastName().getText().trim();
+            String email = studentView.getTxtEmail().getText().trim();
+            String dobTxt = studentView.getTxtDob().getText().trim();
+
+            if (firstName.isBlank() || lastName.isBlank() || email.isBlank() || dobTxt.isBlank()) {
+                JOptionPane.showMessageDialog(studentView,"All fields are required. Please fill in all details.","Validation Error",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            if (!email.matches("^[\\w.-]+@[\\w.-]+\\.\\w{2,}$")) {
+                JOptionPane.showMessageDialog(studentView,"Please enter a valid email address.","Invalid Email",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setLenient(false);
             Date dob = sdf.parse(dobTxt);
-            
+            Date today = new Date();
+
+            if (dob.after(today)) {
+                JOptionPane.showMessageDialog(studentView,"Date of birth cannot be in the future.","Invalid Date",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
             student = new Student(firstName, lastName, email, new java.sql.Date(dob.getTime()));
             boolean success = studentDAO.createStudent(student);
-            if(success){
-                JOptionPane.showMessageDialog(studentView, "Student Profile Created Successfully.", "Operation Complete!", JOptionPane.INFORMATION_MESSAGE);
+
+            if (success) {
+                JOptionPane.showMessageDialog(studentView,"Student profile created successfully.","Operation Complete",JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(studentView,"Student profile creation failed. Please try again.","Operation Failed",JOptionPane.ERROR_MESSAGE);
             }
-            else{
-                JOptionPane.showMessageDialog(studentView, "Student Profile Creation Failed.", "Operation Failed!", JOptionPane.ERROR_MESSAGE);
-            }
+
             loadStudents();
             clearFields();
-        }
-        catch(ParseException pex){
-            studentView.setLbError("Something went wrong");
-            System.out.println(pex.getMessage());
-        }
-        catch(Exception ex){
-            studentView.setLbError(ex.getMessage());
-            System.out.println(ex.getMessage());
+
+        } 
+        catch (ParseException pex) {
+            JOptionPane.showMessageDialog(studentView,"Please enter the date of birth in the correct format (yyyy-MM-dd).","Invalid Date Format",JOptionPane.ERROR_MESSAGE);
+        } 
+        catch (Exception ex) {
+            JOptionPane.showMessageDialog(studentView,"An unexpected error occurred: " + ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
+
     
     public void updateStudent(){
         try{
-            int studentId = Integer.parseInt((studentView.getTxtId().getText()));
-            String firstName = studentView.getTxtFirstName().getText();
-            String lastName = studentView.getTxtLastName().getText();
-            String email = studentView.getTxtEmail().getText();
-            String dobTxt = studentView.getTxtDob().getText();
+            String idText = studentView.getTxtId().getText().trim();
+            String firstName = studentView.getTxtFirstName().getText().trim();
+            String lastName = studentView.getTxtLastName().getText().trim();
+            String email = studentView.getTxtEmail().getText().trim();
+            String dobTxt = studentView.getTxtDob().getText().trim();
+
+            if (firstName.isBlank() || lastName.isBlank() || email.isBlank() || dobTxt.isBlank() || idText.isBlank()) {
+                JOptionPane.showMessageDialog(studentView,"All fields are required. Please fill in all details.","Validation Error",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            if (!email.matches("^[\\w.-]+@[\\w.-]+\\.\\w{2,}$")) {
+                JOptionPane.showMessageDialog(studentView,"Please enter a valid email address.","Invalid Email",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
             
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Date dob = sdf.parse(dobTxt);
+            int studentId = Integer.parseInt(idText);
             
             student = new Student(studentId,firstName, lastName, email, new java.sql.Date(dob.getTime()));
             boolean success = studentDAO.updateStudent(student);
@@ -133,13 +162,11 @@ public class StudentController {
             loadStudents();
             clearFields();
         }
-        catch(ParseException pex){
-            studentView.setLbError("Something went wrong");
-            System.out.println(pex.getMessage());
-        }
-        catch(Exception ex){
-            studentView.setLbError(ex.getMessage());
-            System.out.println(ex.getMessage());
+        catch (ParseException pex) {
+            JOptionPane.showMessageDialog(studentView,"Please enter the date of birth in the correct format (yyyy-MM-dd).","Invalid Date Format",JOptionPane.ERROR_MESSAGE);
+        } 
+        catch (Exception ex) {
+            JOptionPane.showMessageDialog(studentView,"An unexpected error occurred: " + ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }
     }
     
