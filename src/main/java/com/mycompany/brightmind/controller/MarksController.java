@@ -225,7 +225,7 @@ public class MarksController {
             List<Marks> filteredMarks = new ArrayList();
         
             if (studentText.isEmpty() || subjectText.isEmpty()) {
-                loadMarks();
+                JOptionPane.showMessageDialog(marksPanel, "Please provide student ID and subject ID","Invalid Inputs",JOptionPane.INFORMATION_MESSAGE);
             }
             else{
                 int studentId = Integer.parseInt(studentText);

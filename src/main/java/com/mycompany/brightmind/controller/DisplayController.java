@@ -7,8 +7,15 @@ package com.mycompany.brightmind.controller;
 import com.mycompany.brightmind.model.DisplayDAO;
 import com.mycompany.brightmind.model.ReportGenrator;
 import com.mycompany.brightmind.view.DisplayPanel;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 /**
@@ -64,7 +71,16 @@ public class DisplayController {
             String filePath = "/Reports/Student Report.jasper";
             Map<String,Object> params = new HashMap<>();
             params.put("student_id", studentId);
-        
+            try {
+            InputStream imgStream = getClass().getResourceAsStream("/images/Student Report.png");
+            if (imgStream == null) {
+                throw new RuntimeException("Image not found in resources");
+            }
+            BufferedImage image = ImageIO.read(imgStream);
+            params.put("image", image);
+        } catch (IOException ex) {
+            Logger.getLogger(DisplayController.class.getName()).log(Level.SEVERE, null, ex);
+        }
             runReport(filePath,params);
             displayPanel.getTxtStudentId().setText("");
         }
@@ -78,26 +94,65 @@ public class DisplayController {
         String filePath = "/Reports/Mark Analysis.jasper";
         Map<String,Object> params = new HashMap<>();
         params.put("exam_type", type);
-        
+        try {
+            InputStream imgStream = getClass().getResourceAsStream("/images/Subject Report.png");
+            if (imgStream == null) {
+                throw new RuntimeException("Image not found in resources");
+            }
+            BufferedImage image = ImageIO.read(imgStream);
+            params.put("image", image);
+        } catch (IOException ex) {
+            Logger.getLogger(DisplayController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         runReport(filePath,params);
         
     }
     
     public void subjectOverview(){
         String filePath = "/Reports/Subject Overview.jasper";
-        
-        runReport(filePath,null);
+        Map<String,Object> params = new HashMap<>();
+        try {
+            InputStream imgStream = getClass().getResourceAsStream("/images/Subject Overview Header.png");
+            if (imgStream == null) {
+                throw new RuntimeException("Image not found in resources");
+            }
+            BufferedImage image = ImageIO.read(imgStream);
+            params.put("image", image);
+        } catch (IOException ex) {
+            Logger.getLogger(DisplayController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        runReport(filePath,params);
     }
     
     public void studentOverview(){
         String filePath = "/Reports/Student Overview.jasper";
-        
-        runReport(filePath,null);
+        Map<String,Object> params = new HashMap<>();
+        try {
+            InputStream imgStream = getClass().getResourceAsStream("/images/Student Overview Header.png");
+            if (imgStream == null) {
+                throw new RuntimeException("Image not found in resources");
+            }
+            BufferedImage image = ImageIO.read(imgStream);
+            params.put("image", image);
+        } catch (IOException ex) {
+            Logger.getLogger(DisplayController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        runReport(filePath,params);
     }
     
     public void marksOverview(){
         String filePath = "/Reports/Marks Overview.jasper";
-        
-        runReport(filePath,null);
+        Map<String,Object> params = new HashMap<>();
+        try {
+            InputStream imgStream = getClass().getResourceAsStream("/images/Marks Overview.png");
+            if (imgStream == null) {
+                throw new RuntimeException("Image not found in resources");
+            }
+            BufferedImage image = ImageIO.read(imgStream);
+            params.put("image", image);
+        } catch (IOException ex) {
+            Logger.getLogger(DisplayController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        runReport(filePath,params);
     }
 }

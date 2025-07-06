@@ -13,7 +13,7 @@ public class DBUtil {
     public static Connection getConnection() {
         try {
             String user = "root";
-            String pass = "codse242f-042";
+            String pass = "";
             String url = "jdbc:mysql://localhost:3306/ead";
 
             Class.forName("com.mysql.cj.jdbc.Driver");
